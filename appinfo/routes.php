@@ -1,25 +1,17 @@
 <?php
 
-declare(strict_types=1);
-// SPDX-FileCopyrightText: Aryan Gupta <aryang9897@gmail.com>
-// SPDX-License-Identifier: AGPL-3.0-or-later
+namespace OCA\FileManagement\AppInfo;
 
-/**
- * Create your routes in here. The name is the lowercase name of the controller
- * without the controller part, the stuff after the hash is the method.
- * e.g. page#index -> OCA\FileManagement\Controller\PageController->index()
- *
- * The controller class has to be registered in the application.php file since
- * it's instantiated in there
- */
-return [
-	'resources' => [
-		'note' => ['url' => '/notes'],
-		'note_api' => ['url' => '/api/0.1/notes']
-	],
-	'routes' => [
-		['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
-		['name' => 'note_api#preflighted_cors', 'url' => '/api/0.1/{path}',
-			'verb' => 'OPTIONS', 'requirements' => ['path' => '.+']]
-	]
-];
+use OCP\AppFramework\App;
+use OCA\FileManagementController\Controller\FileManagementController;
+
+$app = new App('file_management');
+
+// Define your routes here
+$app->get('/', 'FileManagementController', 'index');
+$app->post('/upload', 'FileManagementController', 'upload');
+$app->get('/download/{id}', 'FileManagementController', 'download');
+$app->get('/view/{id}', 'FileManagementController', 'view');
+$app->delete('/delete/{id}', 'FileManagementController', 'delete');
+
+return $app;
