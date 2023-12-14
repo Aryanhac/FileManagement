@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <!--
+    SPDX-FileCopyrightText: Aryan Gupta <aryang9897@gmail.com>
+    SPDX-License-Identifier: CC0-1.0
+    -->
+    <id>filemanagement</id>
+    <name>File Management</name>
+    <summary>It is the File Management tool</summary>
+    <description><![CDATA[It is the File Management tool]]></description>
+    <version>0.0.1</version>
+    <licence>agpl</licence>
+    <author mail="aryang9897@gmail.com" >Aryan Gupta</author>
+    <namespace>FileManagement</namespace>
+    <category>tools</category>
+    <bugs>https://github.com/Aryanhac/File_Manager/issues</bugs>
+    <dependencies>
+        <nextcloud min-version="28" max-version="28"/>
+    </dependencies>
+    <navigations>
+        <navigation>
+            <name>File Management</name>
+            <route>filemanagement.page.index</route>
+        </navigation>
+    </navigations>
+</info>
